@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A real time collaborative notes app and much more...",
   "main": "index.ts",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "nodemon backend/index.ts"
   },
