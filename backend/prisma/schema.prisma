@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
+  output   = "../node_modules/.prisma/client"
 }
 
 datasource db {
@@ -14,15 +14,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
-  id String @id @default(cuid())
-  name String
-  username String @default(nanoid()) @unique
-  email String @unique
-  password String
-  image_url String
-  isVerified Boolean
+  id         String   @id @default(cuid())
+  name       String
+  username   String   @unique
+  email      String   @unique
+  password   String
+  image_url  String?
+  isVerified Boolean  @default(false)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
