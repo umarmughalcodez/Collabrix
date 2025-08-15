@@ -54,11 +54,7 @@ const Register: React.FC = () => {
     if (!validateForm()) return;
 
     try {
-      const payload = setForm({
-        ...form,
-        username: form.username.toLowerCase(),
-      });
-      const res = await fetch("http://localhost:4000/api/auth/register", {
+      const res = await fetch(`http://localhost:4000/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -79,7 +75,7 @@ const Register: React.FC = () => {
       setForm({ name: "", username: "", email: "", password: "" });
 
       setTimeout(() => {
-        navigate("/");
+        navigate("/login");
       }, 800);
     } catch (error) {
       if (error instanceof Error) toast.error(error.message);
